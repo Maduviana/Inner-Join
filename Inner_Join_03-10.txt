@@ -1,0 +1,39 @@
+CREATE DATABASE atividade03_10;
+
+CREATE TABLE alunos( 
+id int AUTO_INCREMENT PRIMARY KEY,
+nome varchar (250), 
+curso varchar (200), 
+idade int 
+);
+
+CREATE TABLE curso( 
+nome varchar (200) PRIMARY KEY, 
+duracao int, 
+descricao varchar (500) 
+);
+
+SELECT * FROM `alunos`
+
+INSERT INTO alunos (nome, curso, idade) VALUES 
+("Maria Eduarda Viana", "Desenvolvimento de Sistemas", 19), 
+("Milena Garcia", "Nutrição", 26), 
+("Thiago Freitas", "Administração", 15), 
+("Pablo Bolena", "Desenvolvimento de Sistemas", 32), 
+("Livia Oscar", "Administração", 20);
+
+SELECT * FROM `curso`
+
+INSERT INTO curso (nome, duracao, descricao) VALUES 
+("Desenvolvimento de Sistemas", 18, "Programação"), 
+("Nutrição", 18, "Comidas"), 
+("Administração", 18, "Pacote Office");
+
+SELECT alunos.nome, alunos.idade, curso.descricao 
+FROM alunos 
+INNER JOIN curso ON alunos.curso = curso.nome;
+
+SELECT alunos.nome, alunos.idade 
+FROM alunos 
+INNER JOIN curso ON alunos.curso = curso.nome 
+WHERE curso.nome = "Desenvolvimento de Sistemas";
